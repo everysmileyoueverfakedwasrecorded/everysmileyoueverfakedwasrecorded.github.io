@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Secured Terminal</title>
 </head>
-<body style="background-color: white; color: black; font-family: monospace; text-align: left; margin: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
+<body style="background-color: white; color: black; font-family: monospace; text-align: left; margin: 50px; max-width: 600px; margin-left: auto; margin-right: auto; position: relative; min-height: 80vh;">
 
     <div id="login-container">
         <p>Restricted Document Access</p>
@@ -28,6 +28,8 @@ Subject displayed extreme fixation on the calendar, repeatedly murmuring about t
         <button onclick="window.location.href='https://everysmileyoueverfakedwasrecorded.github.io'" style="background: white; border: 1px solid black; padding: 5px 10px; cursor: pointer;">continue further</button>
     </div>
 
+    <button onclick="downloadTextFile()" style="position: fixed; bottom: 10px; left: 10px; background: white; border: 1px solid black; font-size: 10px; padding: 2px 5px; cursor: pointer;">downlaod</button>
+
     <script>
         function checkPassword() {
             let inputWord = document.getElementById("passkey").value;
@@ -37,6 +39,16 @@ Subject displayed extreme fixation on the calendar, repeatedly murmuring about t
             } else {
                 document.getElementById("error").innerText = "Access Denied: Invalid Key";
             }
+        }
+
+        function downloadTextFile() {
+            let fileContent = "Subject displayed extreme fixation on the calendar, repeatedly murmuring about the exact numeric designation corresponding to George Orwell's dystopian surveillance state, the numbers mean something but what, George Orwell's dystopian surveillance state must not procare or else the envy and wrath of those may be unleashed\n\nGeorge Orwell's dystopian surveillance state is the key but for a key to work you need a lock\n\nthe lock is below";
+            let blob = new Blob([fileContent], { type: "text/plain" });
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "hennyman.txt";
+            link.click();
+            URL.revokeObjectURL(link.href);
         }
     </script>
 
