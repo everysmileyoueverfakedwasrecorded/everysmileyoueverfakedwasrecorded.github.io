@@ -6,20 +6,32 @@
 </head>
 <body style="background-color: white; color: black; font-family: monospace; text-align: left; margin: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
 
-    <p>Restricted Document Access</p>
-    <p>Enter password:</p>
+    <div id="login-container">
+        <p>Restricted Document Access</p>
+        <p>Enter password:</p>
 
-    <input type="password" id="passkey" style="background: white; border: 1px solid black; padding: 5px;">
-    <br><br>
-    <button onclick="decryptFile()" style="background: white; border: 1px solid black; padding: 5px 10px; cursor: pointer;">Enter Password</button>
-    
-    <p id="error" style="color: red;"></p>
+        <input type="password" id="passkey" style="background: white; border: 1px solid black; padding: 5px;">
+        <br><br>
+        <button onclick="checkPassword()" style="background: white; border: 1px solid black; padding: 5px 10px; cursor: pointer;">Enter Password</button>
+        
+        <p id="error" style="color: red;"></p>
+    </div>
+
+    <div id="content-container" style="display: none;">
+        <p>Access granted. Entry logged.</p>
+        <pre id="filecontent" style="white-space: pre-wrap; margin-top: 20px; border: 1px solid black; padding: 15px;">
+Subject displayed extreme fixation on the calendar, repeatedly murmuring about the exact numeric designation corresponding to George Orwell's dystopian surveillance state, the numbers mean something but what, George Orwell's dystopian surveillance state must not procare or else the envy and wrath of those may be unleashed
+        </pre>
+        <br>
+        <button onclick="window.location.href='https://everysmileyoueverfakedwasrecorded.github.io'" style="background: white; border: 1px solid black; padding: 5px 10px; cursor: pointer;">continue further</button>
+    </div>
 
     <script>
-        function decryptFile() {
+        function checkPassword() {
             let inputWord = document.getElementById("passkey").value;
             if (inputWord === "TARGET_WORD") {
-                window.location.href = "https://everysmileyoueverfakedwasrecorded.github.io";
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("content-container").style.display = "block";
             } else {
                 document.getElementById("error").innerText = "Access Denied: Invalid Key";
             }
