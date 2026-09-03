@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Unused title here</title>
+</head>
+<body style="background-color: white; color: black; font-family: monospace; text-align: center; margin-top: 100px;">
+
+    <p>4 digit password</p>
+
+    <input type="text" id="pass" style="background: white; border: 1px solid black; padding: 5px;">
+    <br><br>
+    <button onclick="checkPass()" style="background: white; border: 1px solid black; padding: 5px 10px; cursor: pointer;">Submit</button>
+    
+    <p id="error"></p>
+
+    <script>
+        function checkPass() {
+            let val = document.getElementById("pass").value;
+            if (val === "1984") {
+                window.location.href = "YOUR_NEXT_LINK_HERE";
+            } else {
+                document.getElementById("error").innerText = "Incorrect";
+            }
+        }
+    </script>
+
+</body>
+</html>
